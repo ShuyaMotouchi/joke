@@ -7,10 +7,10 @@ def zundoko():
 	while 1:
 		rand = random.randint(1,2)
 		if rand == 1:
-			print("zun")
+			print("ズン")
 			return(1)
 		elif rand == 2:
-			print("doko")
+			print("ドコ")
 			return(2)
 
 
@@ -22,7 +22,7 @@ def kiyoshi():
 	return(a)
 while 1:
 	if kiyoshi() == [1,1,1,1,2]:
-		print ("kiyoshi")
+		print ("きよし")
 		break
 	else:
 		print ("miss")
