@@ -4,7 +4,7 @@
 import random
 
 def zundoko():
-	while 1:
+	while True:
 		rand = random.randint(1,2)
 		if rand == 1:
 			print("====ズン====")
