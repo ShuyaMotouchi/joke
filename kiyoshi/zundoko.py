@@ -26,12 +26,12 @@ def kiyoshi():
 		if p == [1,1,1,1,2]:
 			print ("=き・よ・し=")
 			break
-	fig = plt.figure(figsize=(4, 4))
-	ax = fig.add_subplot(111)
-	ax.pie([zun,doko])
-	plt.show()
+	
 	print ("ズンの回数 青:%d" %zun)
 	print ("ドコの回数 緑:%d" %doko)
-
-
+	print ("きよしの回数 赤:1")
+	fig = plt.figure(figsize=(4, 4))
+	ax = fig.add_subplot(111)
+	ax.pie([zun,doko,1])
+	plt.show()
 kiyoshi()
