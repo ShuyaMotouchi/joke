@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#%!/bin/bash python3
+#!/bin/bash python3
 
 import random
 
