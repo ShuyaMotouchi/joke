@@ -20,6 +20,6 @@ def read_kamen():
 	print("僕達は{0}人の仮面ライダー".format(count))
 
 
-
-read_kamen()
+if __name__=="__main__":
+	read_kamen()
 
