@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>{{title}}</h1>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script type="text/javascript">  
+<!-- start of JavaScript  
+function CountdownTimer( elemID, timeLimit, limitMessage, msgClass ) {  
+    this.initialize.apply( this, arguments );  
+}  
+  
+CountdownTimer.prototype =  {  
+  
+    /** 
+     * Constructor 
+     */  
+    initialize: function( elemID, timeLimit, limitMessage, msgClass ) {  
+        this.elem = document.getElementById( elemID );  
+        this.timeLimit = timeLimit;  
+        this.limitMessage = limitMessage;  
+        this.msgClass = msgClass;  
+    },  
+  
+    /** 
+     * カウントダウン 
+     */  
+    countDown : function()  {  
+        var timer;  
+        var today = new Date()  
+        var days = Math.floor( ( this.timeLimit - today ) / ( 24 * 60 * 60 * 1000 ) );  
+        var hours = Math.floor( ( ( this.timeLimit - today ) % ( 24 * 60 * 60 * 1000 ) ) / ( 60 * 60 * 1000 ) );  
+        var mins = Math.floor( ( ( this.timeLimit - today ) % ( 24 * 60 * 60 * 1000 ) ) / ( 60 * 1000 ) ) % 60;  
+        var secs = Math.floor( ( ( this.timeLimit - today ) % ( 24 * 60 * 60 * 1000 ) ) / 1000 ) % 60 % 60;  
+        var milis = Math.floor( ( ( this.timeLimit - today ) % ( 24 * 60 * 60 * 1000 ) ) / 10 ) % 100;  
+        var me = this;  
+  
+            if( ( this.timeLimit - today ) > 0 ){  
+            timer = 'ハッカソン終了まであと<br />' + days + '日' + this.addZero( hours ) + '時間' + this.addZero( mins ) + '分'+ this.addZero( secs ) + '秒'  + this.addZero( milis ) + ' です。'  
+            this.elem.innerHTML = timer;  
+            tid = setTimeout( function() { me.countDown(); }, 10 );  
+  
+            }else{  
+            this.elem.innerHTML = this.limitMessage;  
+            if( this.msgClass ) {  
+                this.elem.setAttribute( 'class', this.msgClass );  
+            }  
+            return;  
+            }  
+    },  
+  
+    /** 
+     * ゼロを付与 
+     */  
+    addZero : function( num )   {  
+        num = '00' + num;  
+        str = num.substring( num.length - 2, num.length );  
+  
+        return str ;  
+    }  
+}  
+  
+// end of JavaScript -->  
+</script> 
+
+
+<div class="timer">  
+<div class="timer_1" id="sampleA"></div>  
+<script language="JavaScript" type="text/javascript">  
+<!--  
+cdTimer1();  
+  
+function cdTimer1() {  
+  
+// 設定項目 ここから---------------------------------------------  
+    // タグ要素のID名  
+    var elemID = 'sampleA';  
+  
+    // 期限日を設定  
+    var year    =   2016;           // 年  
+    var month   =   10;              // 月  
+    var day     =   29;             // 日  
+    var hours   =   20;             //時
+    // 期限終了後のメッセージ  
+    var limitMessage    =   'キャンペーンは終了しました。';  
+  
+    // メッセージのスタイルクラス名（変更しない場合は空欄）  
+    var msgClass = 'msg_1';  
+// 設定項目 ここまで---------------------------------------------  
+  
+  
+    var timeLimit = new Date( year, month - 1, day ,hours);  
+    var timer = new CountdownTimer( elemID, timeLimit, limitMessage, msgClass );  
+    timer.countDown();  
+}  
+  
+// -->  
+</script>  
+</div>  
+
+<h2><a href="http://127.0.0.1:5000/hello"target="_blank">注文する</h2>
+
+{% endblock %}

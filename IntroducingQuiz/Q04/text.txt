@@ -1,0 +1,238 @@
+(@jtwp470) さんがいきなり
+
+ 以下のPythonコードと等価の出力をするコードをPythonでかつ ​*ワンライナー*​ で書け　制限時間10分
+
+"".join(map(chr, range(33, 123)))
+ 
+というような内容をSlackに投げてきた。一応、正解!?できたので後ほど紹介します。Pythonでワンライナー.…シェル芸勉強会ではたまにRubyやPerlでといている方がいるがpython で解いている人は見たことがない。
+ 
+
+これを機にPythonnワンライナーという黒魔法を習得したい。
+
+とりあえず、ググる
+
+ Python ワンライナー 
+ぐぐって分かった気になった、。
+ 
+とりあえず、Pythonでワンライナーを書くには -c オプションを使います。
+ 
+Hello World 
+
+$python3.4 -c "print ('hello world')"
+hello world
+ 
+
+python3 -c "print("Hello world")"
+SyntaxError: unexpected EOF while parsing　
+の意味が分からん。
+
+— もとうち (@SMotochi_net) February 11, 2016
+@SMotochi_net だめやろ、
+外ダブルなら中身シングル
+
+— でこ (@nori_deco) February 11, 2016
+ 
+
+ 
+
+ 
+
+実は10分ぐらい溶かしました"(ダブルクォート)の中身は'(シングルクォート)じゃないとダメみたいですね。
+
+ 
+
+気を取り直して引数を与えてみる！！！！
+
+$python3 -c "import sys; print(sys.argv)" 10 11 12
+
+['-c', '10', '11', '12']
+
+ 
+
+引数で足し算をしたいときは
+
+$python3 -c "import sys; print(sum([int(x) for x in sys.argv[1:]]))" 10 11 12
+33
+
+1から10まで表示
+
+python3 -c "print (''.join([str(i) for i in range(1,11)]))"
+12345678910
+
+ 
+
+syu-m-5151.hatenablog.com
+
+ 
+
+で使ったデータと内容を使いたいと思います。
+
+ 
+
+ファイルの中身を表示
+
+python3 -c "print (open('data').read())"
+
+1 2 3 4 5
+6 7 8 9 10
+11 12 13 14 15
+16 17 18 19 20
+
+ファイルを一行ずつ表示
+
+$python3 -c "for char in open('data').readlines():print (char)"
+1 2 3 4 5
+
+6 7 8 9 10
+
+11 12 13 14 15
+
+16 17 18 19 20
+
+ファイルの中身を一文字ずつ表示 
+
+$python3 -c "for char in open('data').read():print (char)"
+1
+
+2
+
+3
+
+4
+
+5
+
+
+6
+
+7
+
+8
+
+9
+
+1
+0
+
+
+1
+1
+
+1
+2
+
+1
+3
+
+1
+4
+
+1
+5
+
+
+1
+6
+
+1
+7
+
+1
+8
+
+1
+9
+
+2
+0
+
+10が含まれている行を表示
+
+ 
+
+$python3 -c "print (([i for i in open('data') if i.find('10') != -1 ]))"
+['6 7 8 9 10\n']
+
+ 
+
+あれ??
+
+ 
+
+$python3 -c "print (''.join([i for i in open('data') if i.find('10') != -1 ]))"
+6 7 8 9 10
+
+ 
+
+これでよし！！！
+
+1を5に書き変えます。
+
+ $python3 -c "print (open('data').read().replace('1','5'))"
+
+
+5 2 3 4 5
+6 7 8 9 50
+55 52 53 54 55
+56 57 58 59 20
+
+replaceメソッドを使うと....
+
+一応、変わりました.....
+
+ 
+
+ 
+
+すみませんが、今回はこれで終わりたいとおもいます。(力尽きました…)
+
+pythonワンライナーで書くには向いてないと言われておりますが
+
+メソッドが多いのでうまく利用できれば強い武器になるとおもいます。
+
+ 次にシェル芸勉強会に参加する際にはpython使います。
+
+最初の問題の問題の答え
+
+まず、質問の意図を探るために実行してみる。
+
+$python3 -c 'print("".join(map(chr, range(33, 123))))'
+!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz
+
+ 
+
+map: すべての要素に処理を行う。シーケンスのすべての要素を関数の引数として実行し、その実行結果から新しいlistを作成する。
+
+ 
+
+.join :文字列を連結する。
+
+ 
+
+ 
+
+ 
+
+ 
+
+$python3 -c "print (''.join([chr(x) for x in range(33,123)]))"
+
+!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz
+
+ 
+
+ 
+
+ 
+
+参考 
+
+Python command line oneliners
+
+ 
+
+闇Pythonista入門(Pythonワンライナーのテクニック集) - cocuh's note
+
+ 
+
+

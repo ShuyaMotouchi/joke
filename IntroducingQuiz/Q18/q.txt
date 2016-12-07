@@ -1,0 +1,1 @@
+["python","Slack","docker"]を返すHello関数を作ってみてください

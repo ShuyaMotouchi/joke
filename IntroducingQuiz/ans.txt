@@ -1,0 +1,114 @@
+Q1
+print("Hello world")
+Q2
+list(range(1,10,2))
+Q03
+a=list(range(1,1000,20))
+sum(a)
+24550
+Q04
+print(open('text.txt').read().count('Python'))
+Q05
+seconds_per_hour = 60 * 60
+seconds_per_day = seconds_per_hour * 24
+Q06
+a=[1995,1235,5242,1314,4321,5464,3455,2345,2355,2134,2351,2,356,213,1235,235,23,234,134,432154,134,134,43,421,421,431,41,1234,1235,5677,4567,26753,53653,2345,46,265,2656,652,4562,2456,6246,2462,636,452,246,2678,345565,266663,6226,319]
+a.sort()
+a[0]
+a[-1]
+
+Q07
+guess_me = 7
+if guess_me < 7:
+	print("too low")
+elif guess_me > 7:
+	print("too high") 
+else:
+	print("just right")
+Q08
+guess_me = input()
+if guess_me < 7:
+        print("too low")
+elif guess_me > 7:
+        print("too high")
+else:
+        print("just right")
+
+
+Q09
+for i in range(1,101):
+    if i%15 == 0:
+        print ('FizzBuzz')
+    elif i%5 == 0:
+        print ('Buzz')
+    elif i%3 == 0:
+        print ('Fizz')
+    else:
+        print (i)
+Q10
+[number for number in range(10) if number % 2 == 0]
+
+Q11
+Ubuntu14の場合
+sudo apt-get install python3-flask
+
+
+
+flask_test.py
+from flask import Flask
+
+app = Flask(__name__)
+@app.route('/')
+def home():
+	return "Hello Flask"
+app.run(debug=True)
+
+python3 flask_test.cpython-34.pyc
+
+Q12
+from datetime import date
+now = date.today()
+now_str = now.isofomat()
+with open("today.txt","wt") as output:
+	print(now_str,file=out)
+
+Q13
+with open('today.txt','rt') as input:
+	today_string = input.read()
+
+Q14
+os.listdir(".")
+os.listdir("/home")
+
+Q15
+import unicodedata
+mystring = "\U0001f4a9"
+print(mystring)
+
+
+Q16
+a = [342,4324,45243,525,234,245,5125,2145,154,324,51245,5151,515,5153,51532,51235,515,454,641,2425,51,432,5414,543,142,4234,23424,424,45234,15]
+[ans for ans in a if ans % 3 ==0]
+
+Q17
+a = [342,4324,45243,525,234,245,5125,2145,154,324,51245,5151,515,5153,51532,51235,515,454,641,2425,51,432,5414,543,142,4234,23424,424,45234,15]
+a[::3]
+
+Q18
+ def Hello():
+    return ["python","Slack","docker"]
+
+Q19
+def fizzbuzz(n):
+    for i in range(1,n):
+        if i %15 == 0:
+            print("FizzBuzz")
+        elif i%5 ==0:
+            print("Buzz")
+        elif i%3 == 0:
+            print("Fizz")
+        else:
+            print(i)
+
+Q20
+

@@ -1,0 +1,25 @@
+Q1
+$wc -m q.txt
+10146 q.txt
+Q2
+mkdir シェルプログラミング実用テクニック{01..08}章
+Q3
+grep -o "メロス" test.txt |wc
+Q4
+sed "s/メロス/`whoami`/g"
+Q5
+grep -r `whoami` /home |grep -v "matches" 2>/dev/null
+Q6
+cut -d ':' -f1,6 /etc/passwd
+Q7
+$history | cut -d ' ' -f 4|sort|uniq -c|sort -n -r|head
+Q8
+ps aux|grep "`whoami`"|awk '{print $4,$2}'|sort -r|head|cut -d" " -f 2
+Q9
+cat /etc/passwd |sed "s/bash/zsh/g"
+Q10
+$seq 1 25|xargs -n 5| awk '{for(a=1;a<=5;a++){if($a%2==0){print $a,"偶数"}else{print $a,"奇数"}}}'|xargs -n 10
+Q11
+seq 20160101 20161231 | date -f - 2> /dev/null | grep 日曜日
+Q12
+seq 1 100|awk '{if($1%15==0){print "FizzBuzz"}else if($1%5==0){print "Buzz"}else if($1%3==0){print "Fizz"}else{print $1}}'

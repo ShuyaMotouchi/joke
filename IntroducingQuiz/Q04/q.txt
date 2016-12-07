@@ -1,0 +1,2 @@
+text.txtの中にPythonと言う文字がいくつ含まれるか調べてください。
+The Zen of Pythonの中に"a"がいくつあるか数えてください

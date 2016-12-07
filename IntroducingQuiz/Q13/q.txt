@@ -1,0 +1,1 @@
+Q12で作ったtoday.txtを読み込みtoday_stringという変数にぶち込め

@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block body %}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<h1>{{ time }} 以上もやって何が不服なの</h1>
+<img src="{{url_for('static', filename='mig.jpg')}}" />
+<h2><a href="http://127.0.0.1:5000/hello">再度、注文する</a></h2>
+<h2><a href="http://127.0.0.1:5000/">Topページに戻る</a></h2>
+{% endblock %}

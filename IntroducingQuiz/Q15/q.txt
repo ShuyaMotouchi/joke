@@ -1,0 +1,1 @@
+mystery というUnicode文字列を作り'\U0001f4a9'という値を代入してmysteryを表示してみよう。

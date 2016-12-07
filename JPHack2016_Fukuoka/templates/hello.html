@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<h1>ランダム</h1>
+<h2>ご注文は<br>{{num}}<br>ですね。</h2>
+<img src="{{url_for('static', filename='go_6.jpg')}}" />
+<h2><a href="http://127.0.0.1:5000/hello">再度、注文する</a></h2>
+<h2><a href="http://127.0.0.1:5000/">Topページに戻る</a></h2>
+{% endblock %}

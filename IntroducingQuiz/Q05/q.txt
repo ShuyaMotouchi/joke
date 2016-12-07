@@ -1,0 +1,2 @@
+seconds_per_hourに1時間を秒にした値を代入する。
+seconds_per_dayに1日を秒にした値を代入する。

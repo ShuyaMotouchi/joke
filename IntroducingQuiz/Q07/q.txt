@@ -1,0 +1,1 @@
+変数guess_meに7を代入してください。次に、guess_meが７よりも小さければ"too low"、７よりも大きければ"too high"を表示し７に等しければ"just right"と表示する条件テスト(if,elif,else)を書こう
